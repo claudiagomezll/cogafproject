@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/e8c217cac2.js" crossorigin="anonymous"></script>
     <style>
         .bg-imagen {
-            background-image: url('img/imagen.avif');
+            background-image: url('img/sgc.png');
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -25,14 +25,7 @@
                 <p class="xl:text-lg">
                     This chapter presents the use of four design patterns for SG based on the cognitive-affective model (COGAF) 
                     to reduce the complexity of developing SGs for cognitive-affective training, providing clean code structures 
-                    that are easy to understand and adaptable to any programming language. The proposal of this article starts with 
-                    the specification of the COGAF model needs, and then proceeds to identify the design patterns  that provide a 
-                    solution to each need. The SDPs used in the recurring scenarios of the COGAF model for SG create a set of 
-                    Java classes. These classes embody the architectural principles of the SGDPs for cognitive-affective training. 
-                    The SGDPs are validated using an illustrative example for the production of an SG based on the COGAF model. 
-                    The SG result is tested firstly with the user and secondly using competency questions. The validation results 
-                    show that from the preliminary code generated based on the COGAF model extended to design patterns, a SG 
-                    prototype was achieved that meets completeness and consistency criteria with respect to the model used
+                    that are easy to understand and adaptable to any programming language. 
                 </p>
             </div>
         </div> 
@@ -46,20 +39,24 @@
                     </a>
                 </div>
                 <div class="flex flex-col space-y-1">
-                    <h1 class="text-xl md:text-2xl font-medium mb-2">Systematic Literature Review</h1>
-                    <p class="pb-10">La página web asociada proporciona una interfaz intuitiva para cargar modelos UML y, a través de interacciones simples, invoca el proceso de generación de código con Acceleo. El resultado es un archivo comprimido que contiene el código Java generado, listo para su utilización y personalización en el desarrollo de aplicaciones.
+                    <p class="pb-10">The proposal of this article starts with 
+                        the specification of the COGAF model needs, and then proceeds to identify the design patterns  that provide a 
+                        solution to each need. The SDPs used in the recurring scenarios of the COGAF model for SG create a set of 
+                        Java classes. These classes embody the architectural principles of the SGDPs for cognitive-affective training. 
+                        The SGDPs are validated using an illustrative example for the production of an SG based on the COGAF model. 
+                        The SG result is tested firstly with the user and secondly using competency questions. The validation results 
+                        show that from the preliminary code generated based on the COGAF model extended to design patterns, a SG 
+                        prototype was achieved that meets completeness and consistency criteria with respect to the model used</p>
+                    <h1 class="text-xl md:text-2xl font-medium mb-2">Theoretical framework</h1>
+                    <p class="pb-10">Design patterns are important tools for improving the software’s structure, modularity, and flexibility of the software (Khomh & Gueheneuc, 2018).  Design patterns are microarchitectures or high-level building blocks” (Schaa et al., 2020).  A design pattern names, extracts, and identifies key aspects of a common design structure, making it helpful in creating reusable object-oriented designs (Schaa et al., 2020).</p>
+                    <p class="pb-10">Figure 1 illustrates the classification of patterns into Creative, Structural, and Behavioral; own of the conventional software design GoF (Gamma et al., 2006), the sequence and decoupling patterns of (Nystrom, 2014), SDP applied to games (Qu et al., 2016) and the SG design patterns for cognitive-affective training are added in the graphical representation of the classification.</p>
+                    <figure>
+                        <img src="img/sgdp_01.jpeg" alt="Figure 1. SDP, GDP and SGDP Clasification" class="responsive"/>
+                        <figcaption class="text-sm italic text-gray-600">Figure 1. SDP, GDP and SGDP Clasification</figcaption>
+                    </figure>
+                    
                 </div>
                 
-
-                <div class="flex flex-col space-y-1">
-                    <h1 class="text-xl md:text-2xl font-medium mb-2">COGAF Model Specification </h1>
-                    <p class="pb-10">La página web asociada proporciona una interfaz intuitiva para cargar modelos UML y, a través de interacciones simples, invoca el proceso de generación de código con Acceleo. El resultado es un archivo comprimido que contiene el código Java generado, listo para su utilización y personalización en el desarrollo de aplicaciones.
-                </div>
-
-                <div class="flex flex-col space-y-1">
-                    <h1 class="text-xl md:text-2xl font-medium mb-2">Design Patterns for Serious Games</h1>
-                    <p class="pb-10">La página web asociada proporciona una interfaz intuitiva para cargar modelos UML y, a través de interacciones simples, invoca el proceso de generación de código con Acceleo. El resultado es un archivo comprimido que contiene el código Java generado, listo para su utilización y personalización en el desarrollo de aplicaciones.
-                </div>
 
                 <a
                     id="descargaLink"
@@ -80,46 +77,5 @@
             </div>
         </div>
     </main>
-
-    <script>
-        async function cargarArchivo() {
-            const fileInput = document.getElementById('fileInput');
-            const archivo = fileInput.files[0];
-
-            if (!archivo) {
-                alert('Seleccione un archivo antes de cargarlo.');
-                return;
-            }
-
-            try {
-                // Crear FormData para enviar el archivo
-                const formData = new FormData();
-                formData.append('file', archivo);
-
-                // Consumir el servicio para cargar el archivo
-                const response = await fetch('http://localhost:8092/umlconverter-api/upload', {
-                    method: 'POST',
-                    body: formData
-                });
-
-                if (response.ok) {
-                    // Si la respuesta es exitosa, generar enlace de descarga
-                    const blob = await response.blob();
-                    const url = window.URL.createObjectURL(blob);
-
-                    const descargaLink = document.getElementById('descargaLink');
-                    descargaLink.href = url;
-                    descargaLink.style.display = 'block';
-
-                } else {
-                    // Manejar errores de carga de archivo
-                    alert('Error al cargar el archivo.');
-                }
-            } catch (error) {
-                console.error('Error en la carga del archivo:', error);
-                alert('Ocurrió un error en la carga del archivo.');
-            }
-        }
-    </script>
 </body>
 </html>

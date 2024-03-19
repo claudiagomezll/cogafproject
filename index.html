@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/e8c217cac2.js" crossorigin="anonymous"></script>
     <style>
         .bg-imagen {
-            background-image: url('img/imagen.avif');
+            background-image: url('img/brain.png');
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -35,17 +35,17 @@
             <div class="p-10 md:p-20 flex flex flex-col space-y-5">
                 <div class="flex flex-col space-y-1">
                     <h1 class="text-xl md:text-2xl font-medium mb-2">Systematic Literature Review</h1>
-                    <p class="pb-10">La página web asociada proporciona una interfaz intuitiva para cargar modelos UML y, a través de interacciones simples, invoca el proceso de generación de código con Acceleo. El resultado es un archivo comprimido que contiene el código Java generado, listo para su utilización y personalización en el desarrollo de aplicaciones.
+                    <p class="pb-10"><a href="chapters/slr/index.html">Ver mas</a></p>
                 </div>
 
                 <div class="flex flex-col space-y-1">
                     <h1 class="text-xl md:text-2xl font-medium mb-2">COGAF Model Specification </h1>
-                    <p class="pb-10">La página web asociada proporciona una interfaz intuitiva para cargar modelos UML y, a través de interacciones simples, invoca el proceso de generación de código con Acceleo. El resultado es un archivo comprimido que contiene el código Java generado, listo para su utilización y personalización en el desarrollo de aplicaciones.
+                    <p class="pb-10"><a href="chapters/specification/index.html">Ver mas</a></p>
                 </div>
 
                 <div class="flex flex-col space-y-1">
                     <h1 class="text-xl md:text-2xl font-medium mb-2">Design Patterns for Serious Games</h1>
-                    <p class="pb-10">La página web asociada proporciona una interfaz intuitiva para cargar modelos UML y, a través de interacciones simples, invoca el proceso de generación de código con Acceleo. El resultado es un archivo comprimido que contiene el código Java generado, listo para su utilización y personalización en el desarrollo de aplicaciones.
+                    <p class="pb-10"><a href="chapters/sgdp/index.html">Ver mas</a></p>
                 </div>
 
                 <a
@@ -67,46 +67,5 @@
             </div>
         </div>
     </main>
-
-    <script>
-        async function cargarArchivo() {
-            const fileInput = document.getElementById('fileInput');
-            const archivo = fileInput.files[0];
-
-            if (!archivo) {
-                alert('Seleccione un archivo antes de cargarlo.');
-                return;
-            }
-
-            try {
-                // Crear FormData para enviar el archivo
-                const formData = new FormData();
-                formData.append('file', archivo);
-
-                // Consumir el servicio para cargar el archivo
-                const response = await fetch('http://localhost:8092/umlconverter-api/upload', {
-                    method: 'POST',
-                    body: formData
-                });
-
-                if (response.ok) {
-                    // Si la respuesta es exitosa, generar enlace de descarga
-                    const blob = await response.blob();
-                    const url = window.URL.createObjectURL(blob);
-
-                    const descargaLink = document.getElementById('descargaLink');
-                    descargaLink.href = url;
-                    descargaLink.style.display = 'block';
-
-                } else {
-                    // Manejar errores de carga de archivo
-                    alert('Error al cargar el archivo.');
-                }
-            } catch (error) {
-                console.error('Error en la carga del archivo:', error);
-                alert('Ocurrió un error en la carga del archivo.');
-            }
-        }
-    </script>
 </body>
 </html>
